@@ -1,0 +1,29 @@
+
+
+<h1> Recherche Voiture par libelle</h1>
+<form action="" method="post">
+    libelle : <input type="text" name="input_libelle">
+    <input type="submit" value="Rechercher">
+
+</form>
+{% if voiture is empty %}
+    Aucune voiture trouvée
+
+{% else %}
+    <table border="2">
+        <tr>
+            <td>serie</td>
+            <td>Modele</td>
+            <td>marque</td>
+
+        </tr>
+        {% for v in voiture  %}
+            <tr>
+                <td>{{ v.serie }}</td>
+                <td>{{ v.modele }}</td>
+                <td>{{ v.marque.libelle }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
